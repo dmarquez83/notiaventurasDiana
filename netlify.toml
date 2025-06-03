@@ -1,0 +1,59 @@
+# Configuración de Netlify para el Periódico Diana
+# Maneja las rutas y redirecciones para una SPA de React
+
+[build]
+  # Comando de construcción
+  command = "npm run build"
+  # Directorio de publicación
+  publish = "build"
+  # Variables de entorno para el build
+  environment = { GENERATE_SOURCEMAP = "false", CI = "false" }
+
+[build.processing]
+  # Optimización de archivos CSS y JS
+  skip_processing = false
+
+[build.processing.css]
+  # Minificar CSS
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  # Minificar JavaScript
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  # Optimizar HTML
+  pretty_urls = true
+
+[[redirects]]
+  # Redirección para SPA - todas las rutas van al index.html
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de seguridad y rendimiento
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Seguridad
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Cache para archivos estáticos
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    # No cachear HTML para actualizaciones inmediatas
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    # Service Worker sin cache
+    Cache-Control = "no-cache" 
