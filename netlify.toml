@@ -2,12 +2,12 @@
 # Maneja las rutas y redirecciones para una SPA de React
 
 [build]
-  # Comando de construcción
-  command = "npm run build"
+  # Comando de construcción específico para Netlify
+  command = "PUBLIC_URL=/ npm run build:netlify"
   # Directorio de publicación
   publish = "build"
   # Variables de entorno para el build
-  environment = { GENERATE_SOURCEMAP = "false", CI = "false" }
+  environment = { GENERATE_SOURCEMAP = "false", CI = "false", PUBLIC_URL = "/" }
 
 [build.processing]
   # Optimización de archivos CSS y JS
