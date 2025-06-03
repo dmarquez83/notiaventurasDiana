@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/notiaventurasDiana/static/css/main.e6c13ad2.css",
+    "main.js": "/notiaventurasDiana/static/js/main.54352e5b.js",
+    "static/js/453.fb2ba82e.chunk.js": "/notiaventurasDiana/static/js/453.fb2ba82e.chunk.js",
+    "index.html": "/notiaventurasDiana/index.html",
+    "main.e6c13ad2.css.map": "/notiaventurasDiana/static/css/main.e6c13ad2.css.map",
+    "main.54352e5b.js.map": "/notiaventurasDiana/static/js/main.54352e5b.js.map",
+    "453.fb2ba82e.chunk.js.map": "/notiaventurasDiana/static/js/453.fb2ba82e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.54352e5b.js"
+  ]
+}
