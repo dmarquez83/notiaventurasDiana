@@ -46,9 +46,9 @@ jobs:
           CI: false # Para evitar warnings que detengan el build
           GENERATE_SOURCEMAP: false # Reducir tamaño del build
 
-      # 6. Desplegar a Netlify (solo si los secrets están configurados)
+      # 6. Desplegar a Netlify (continua aunque falle si no hay secrets)
       - name: 🚀 Desplegar a Netlify
-        if: ${{ secrets.NETLIFY_AUTH_TOKEN && secrets.NETLIFY_SITE_ID }}
+        continue-on-error: true
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: "./build" # Carpeta a publicar
@@ -68,8 +68,5 @@ jobs:
         run: |
           echo "🎉 ¡Deploy exitoso!"
           echo "📰 NotiAventuras de Diana está actualizado"
-          if [[ "${{ secrets.NETLIFY_AUTH_TOKEN }}" && "${{ secrets.NETLIFY_SITE_ID }}" ]]; then
-            echo "🌐 Sitio Netlify actualizado"
-          else
-            echo "⚠️  Netlify no configurado - Solo GitHub Pages actualizado"
-          fi
+          echo "🏠 GitHub Pages: https://dmarquez83.github.io/notiaventurasDiana"
+          echo "⚡ Netlify: Configurar secrets para activar deploy automático"
