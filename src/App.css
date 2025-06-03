@@ -1,0 +1,322 @@
+/* Estilos para el periódico digital "Cine al Día: Ayer y Hoy" */
+
+.App {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+/* TIPOGRAFÍAS PERIÓDISTICAS */
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.6;
+  color: #2c3e50;
+}
+
+/* Estilo para títulos de periódico */
+.newspaper-title {
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* DROP CAP MEJORADO - Primera letra grande */
+.drop-cap::first-letter {
+  float: left;
+  font-size: 4rem;
+  line-height: 0.8;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 4px;
+  margin-right: 4px;
+  font-weight: bold;
+  color: #1565c0;
+  font-family: "Georgia", serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+  .drop-cap::first-letter {
+    font-size: 3rem;
+    line-height: 0.85;
+    padding-right: 8px;
+    padding-top: 4px;
+  }
+}
+
+/* EFECTO DE SOMBRA PARA PAPEL */
+.paper-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.paper-shadow:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* COLUMNAS DE PERIÓDICO */
+.newspaper-column {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px solid #e0e0e0;
+  text-align: justify;
+  hyphens: auto;
+}
+
+@media (max-width: 768px) {
+  .newspaper-column {
+    column-count: 1;
+  }
+}
+
+/* SEPARADORES DE SECCIÓN */
+.section-divider {
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, #1565c0, #42a5f5, #1565c0);
+  margin: 2rem 0;
+  border-radius: 2px;
+}
+
+/* PULL QUOTES - Citas destacadas */
+.pull-quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: #f8f9fa;
+  border-left: 5px solid #1565c0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.pull-quote::before {
+  content: '"';
+  font-size: 4rem;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: #1565c0;
+  opacity: 0.3;
+}
+
+/* BYLINES - Créditos del autor */
+.byline {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* KICKERS - Texto pequeño sobre titulares */
+.kicker {
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+/* HEADLINES - Titulares principales */
+.headline {
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.headline-main {
+  font-size: 2.5rem;
+}
+
+.headline-secondary {
+  font-size: 1.8rem;
+}
+
+.headline-tertiary {
+  font-size: 1.4rem;
+}
+
+/* DECK - Subtítulos explicativos */
+.deck {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #666;
+  border-left: 4px solid;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* CAPTIONS - Descripciones de imágenes */
+.caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #666;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* NAVEGACIÓN STICKY */
+.sticky-nav {
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+}
+
+/* EFECTOS DE HOVER */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ANIMACIONES SUAVES */
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* COLORES TEMÁTICOS */
+.cine-theme {
+  color: #1976d2;
+}
+.escuela-theme {
+  color: #388e3c;
+}
+.ambiente-theme {
+  color: #f57c00;
+}
+.entretenimiento-theme {
+  color: #d32f2f;
+}
+.salud-theme {
+  color: #c2185b;
+}
+.deporte-theme {
+  color: #303f9f;
+}
+
+/* ESPACIOS PARA IMÁGENES */
+.image-placeholder {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  background: linear-gradient(
+      45deg,
+      #f9f9f9 25%,
+      transparent 25%,
+      transparent 75%,
+      #f9f9f9 75%
+    ),
+    linear-gradient(
+      45deg,
+      #f9f9f9 25%,
+      transparent 25%,
+      transparent 75%,
+      #f9f9f9 75%
+    );
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  transition: all 0.3s ease;
+}
+
+.image-placeholder:hover {
+  border-color: #1565c0;
+  background-color: rgba(21, 101, 192, 0.05);
+}
+
+/* LAYOUT RESPONSIVO */
+@media (max-width: 1200px) {
+  .headline-main {
+    font-size: 2rem;
+  }
+  .headline-secondary {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .headline-main {
+    font-size: 1.8rem;
+  }
+  .headline-secondary {
+    font-size: 1.3rem;
+  }
+  .pull-quote {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
+
+/* IMPRESIÓN */
+@media print {
+  .App {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .paper-shadow {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* SCROLLBAR PERSONALIZADA */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1565c0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0d47a1;
+}
+
+/* EFECTOS DE ENFOQUE */
+.focus-highlight:focus {
+  outline: 2px solid #1565c0;
+  outline-offset: 2px;
+}
+
+/* TRANSICIONES GLOBALES */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* ESPACIADO CONSISTENTE */
+.content-spacing > * {
+  margin-bottom: 1rem;
+}
+
+.content-spacing > *:last-child {
+  margin-bottom: 0;
+}
