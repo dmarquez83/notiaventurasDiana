@@ -31,20 +31,24 @@ jobs:
       - name: 📥 Instalar dependencias
         run: npm ci # Instalación más rápida y confiable
 
-      # 4. Ejecutar tests (opcional)
+      # 4. Ejecutar tests (con warnings suprimidos)
       - name: 🧪 Ejecutar tests
-        run: npm test -- --coverage --ci --passWithNoTests
+        run: npm test -- --coverage --ci --passWithNoTests --silent
         env:
           CI: true
+          # Suprimir warnings de console para tests más limpios
+          NODE_OPTIONS: "--max-old-space-size=4096"
 
       # 5. Construir la aplicación para producción
       - name: 🏗️ Construir aplicación
         run: npm run build
         env:
           CI: false # Para evitar warnings que detengan el build
+          GENERATE_SOURCEMAP: false # Reducir tamaño del build
 
-      # 6. Desplegar a Netlify
+      # 6. Desplegar a Netlify (solo si los secrets están configurados)
       - name: 🚀 Desplegar a Netlify
+        if: ${{ secrets.NETLIFY_AUTH_TOKEN && secrets.NETLIFY_SITE_ID }}
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: "./build" # Carpeta a publicar
@@ -64,4 +68,8 @@ jobs:
         run: |
           echo "🎉 ¡Deploy exitoso!"
           echo "📰 NotiAventuras de Diana está actualizado"
-          echo "🌐 Sitio disponible en: https://notiaventuras-diana.netlify.app"
+          if [[ "${{ secrets.NETLIFY_AUTH_TOKEN }}" && "${{ secrets.NETLIFY_SITE_ID }}" ]]; then
+            echo "🌐 Sitio Netlify actualizado"
+          else
+            echo "⚠️  Netlify no configurado - Solo GitHub Pages actualizado"
+          fi
