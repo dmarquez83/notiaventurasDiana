@@ -1,27 +1,36 @@
 # 📰 NotiAventuras de Diana
 
-Un periódico digital moderno creado con React y Material UI, diseñado por Diana Márquez del 5to grado.
+**Periódico Digital Escolar - "Cine al Día: Ayer y Hoy"**
+
+Un hermoso periódico digital creado con React y Material UI que presenta las noticias y aventuras escritas por Diana Márquez del 5to Grado.
 
 ## 🌟 Características
 
-- **📱 Responsive Design** - Se adapta a móviles y escritorio
-- **🎨 Material UI** - Interfaz moderna y profesional
-- **📰 6 Secciones** - Historia del Cine, Colegio, Ambiente, Entretenimiento, Salud y Deportes
-- **🎯 Navegación Intuitiva** - Fácil de usar para todas las edades
-- **🚀 Deploy Automático** - Actualización automática con cada cambio
+- **6 Secciones temáticas** con colores distintivos
+- **Historia del Cine** - Evolución del séptimo arte
+- **Noticias del Colegio** - Actividades escolares
+- **Cuidado del Ambiente** - Consejos ecológicos
+- **Entretenimiento** - Videojuegos y diversión
+- **Consejos de Salud** - Hábitos saludables
+- **Deportes** - Actividades físicas
+
+## 🚀 Deploy Automático
+
+✅ **Sitio en vivo:** https://coruscating-scone-02ae73.netlify.app
+
+Este proyecto se despliega automáticamente a Netlify cada vez que se hace push a la rama `main`.
+
+### 🔧 Tecnologías Utilizadas
+
+- **React** - Framework de JavaScript
+- **Material UI** - Componentes de interfaz
+- **GitHub Actions** - CI/CD automático
+- **Netlify** - Hosting y deploy
 
 ## 🌐 Ver el Periódico
 
 - **Sitio Principal:** [https://dmarquez83.github.io/notiaventurasDiana](https://dmarquez83.github.io/notiaventurasDiana)
 - **Netlify (Backup):** [Configurar según instrucciones](#deploy-automático-a-netlify)
-
-## 🏗️ Tecnologías Utilizadas
-
-- **React 19** - Framework principal
-- **Material UI 7** - Componentes de interfaz
-- **GitHub Pages** - Hosting principal
-- **GitHub Actions** - Pipeline de CI/CD
-- **Netlify** - Deploy automático opcional
 
 ## 🚀 Instalación Local
 
@@ -98,9 +107,12 @@ Ahora cada vez que hagas `git push`, se ejecutará automáticamente:
 
 ## 👩‍🎓 Autora
 
-**Diana Márquez**  
-Editorial: "Ideas Brillantes del 5to Grado"  
-Fecha: 29 de mayo de 2025
+**Diana Márquez** - Estudiante de 5to Grado  
+Editorial: "Ideas Brillantes del 5to Grado"
+
+---
+
+*Fecha de publicación: 29 de mayo de 2025*
 
 ## 📄 Licencia
 
