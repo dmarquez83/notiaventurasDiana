@@ -1,0 +1,67 @@
+# Pipeline para desplegar automáticamente a Netlify
+# Se ejecuta cada vez que se hace push a la rama main
+name: 🚀 Deploy a Netlify
+
+# Cuándo se ejecuta este pipeline
+on:
+  push:
+    branches: [main] # Solo cuando se hace push a main
+  pull_request:
+    branches: [main] # Y cuando se hace PR a main
+
+# Trabajos que se ejecutan
+jobs:
+  deploy:
+    name: 🌐 Construir y Desplegar
+    runs-on: ubuntu-latest # Servidor Ubuntu más reciente
+
+    steps:
+      # 1. Descargar el código del repositorio
+      - name: 📦 Checkout del código
+        uses: actions/checkout@v4
+
+      # 2. Configurar Node.js
+      - name: 🟢 Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18" # Versión de Node.js
+          cache: "npm" # Cache para acelerar instalaciones
+
+      # 3. Instalar dependencias
+      - name: 📥 Instalar dependencias
+        run: npm ci # Instalación más rápida y confiable
+
+      # 4. Ejecutar tests (opcional)
+      - name: 🧪 Ejecutar tests
+        run: npm test -- --coverage --ci --passWithNoTests
+        env:
+          CI: true
+
+      # 5. Construir la aplicación para producción
+      - name: 🏗️ Construir aplicación
+        run: npm run build
+        env:
+          CI: false # Para evitar warnings que detengan el build
+
+      # 6. Desplegar a Netlify
+      - name: 🚀 Desplegar a Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: "./build" # Carpeta a publicar
+          production-branch: main # Rama de producción
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "🎉 Deploy desde GitHub Actions - ${{ github.event.head_commit.message }}"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 10
+
+      # 7. Notificar éxito
+      - name: ✅ Deploy completado
+        run: |
+          echo "🎉 ¡Deploy exitoso!"
+          echo "📰 NotiAventuras de Diana está actualizado"
+          echo "🌐 Sitio disponible en: https://notiaventuras-diana.netlify.app"

@@ -1,71 +1,111 @@
-# Getting Started with Create React App
+# 📰 NotiAventuras de Diana
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un periódico digital moderno creado con React y Material UI, diseñado por Diana Márquez del 5to grado.
 
-## Available Scripts
+## 🌟 Características
 
-In the project directory, you can run:
+- **📱 Responsive Design** - Se adapta a móviles y escritorio
+- **🎨 Material UI** - Interfaz moderna y profesional
+- **📰 6 Secciones** - Historia del Cine, Colegio, Ambiente, Entretenimiento, Salud y Deportes
+- **🎯 Navegación Intuitiva** - Fácil de usar para todas las edades
+- **🚀 Deploy Automático** - Actualización automática con cada cambio
 
-### `npm start`
+## 🌐 Ver el Periódico
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Sitio Principal:** [https://dmarquez83.github.io/notiaventurasDiana](https://dmarquez83.github.io/notiaventurasDiana)
+- **Netlify (Backup):** [Configurar según instrucciones](#deploy-automático-a-netlify)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🏗️ Tecnologías Utilizadas
 
-### `npm test`
+- **React 19** - Framework principal
+- **Material UI 7** - Componentes de interfaz
+- **GitHub Pages** - Hosting principal
+- **GitHub Actions** - Pipeline de CI/CD
+- **Netlify** - Deploy automático opcional
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Instalación Local
 
-### `npm run build`
+```bash
+# Clonar el repositorio
+git clone https://github.com/dmarquez83/notiaventurasDiana.git
+cd notiaventurasDiana
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Instalar dependencias
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Ejecutar en desarrollo
+npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Construir para producción
+npm run build
+```
 
-### `npm run eject`
+## 📦 Deploy Automático a Netlify
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Paso 1: Crear cuenta en Netlify
+1. Ve a [netlify.com](https://netlify.com)
+2. Crea una cuenta gratuita
+3. Conecta con tu GitHub
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Paso 2: Obtener credenciales
+1. **Token de Netlify:**
+   - Ve a [app.netlify.com/user/applications#personal-access-tokens](https://app.netlify.com/user/applications#personal-access-tokens)
+   - Crea un nuevo token
+   - Copia el token generado
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Site ID:**
+   - Crea un nuevo sitio en Netlify (puede estar vacío)
+   - Ve a Site settings → General → Site details
+   - Copia el "Site ID"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Paso 3: Configurar GitHub Secrets
+1. Ve a tu repositorio en GitHub
+2. Ve a **Settings** → **Secrets and variables** → **Actions**
+3. Agrega estos secrets:
+   - `NETLIFY_AUTH_TOKEN`: Tu token de Netlify
+   - `NETLIFY_SITE_ID`: Tu Site ID de Netlify
 
-## Learn More
+### Paso 4: ¡Listo!
+Ahora cada vez que hagas `git push`, se ejecutará automáticamente:
+- ✅ Instalación de dependencias
+- ✅ Ejecución de tests
+- ✅ Construcción de la aplicación
+- ✅ Deploy automático a Netlify
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📝 Cómo Hacer Cambios
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Edita el código** en tu editor favorito
+2. **Prueba localmente:**
+   ```bash
+   npm start
+   ```
+3. **Sube los cambios:**
+   ```bash
+   git add .
+   git commit -m "Descripción del cambio"
+   git push
+   ```
+4. **¡El deploy es automático!** - GitHub Actions se encarga del resto
 
-### Code Splitting
+## 📊 Secciones del Periódico
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **🎥 Historia del Cine** - Del cine mudo al digital
+2. **🏫 Información del Colegio** - Noticias escolares
+3. **🌱 Ambiente** - Cuidado del medio ambiente
+4. **🕹️ Entretenimiento** - Videojuegos y diversión
+5. **🍓 Salud** - Consejos saludables
+6. **🏊‍♀️ Deportes** - Actividades físicas
 
-### Analyzing the Bundle Size
+## 👩‍🎓 Autora
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Diana Márquez**  
+Editorial: "Ideas Brillantes del 5to Grado"  
+Fecha: 29 de mayo de 2025
 
-### Making a Progressive Web App
+## 📄 Licencia
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Este proyecto es de uso educativo y personal.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# notiaventurasDiana
+💡 **¿Necesitas ayuda?** Abre un [Issue](https://github.com/dmarquez83/notiaventurasDiana/issues) en GitHub
