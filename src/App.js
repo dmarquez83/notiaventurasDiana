@@ -203,6 +203,33 @@ function App() {
             {periodicoData.masthead.titulo}
           </Typography>
 
+          {/* Badge de Edición Especial - NUEVO */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mb: 1,
+            }}
+          >
+            <Typography
+              variant="caption"
+              sx={{
+                backgroundColor: "rgba(255,215,0,0.9)",
+                color: "#1565C0",
+                fontWeight: "bold",
+                px: 2,
+                py: 0.5,
+                borderRadius: "15px",
+                border: "2px solid #FFD700",
+                textTransform: "uppercase",
+                letterSpacing: "1px",
+                fontSize: "0.8rem",
+              }}
+            >
+              🌟 EDICIÓN ESPECIAL - DEPLOY AUTOMÁTICO 🌟
+            </Typography>
+          </Box>
+
           {/* Subtítulo */}
           <Typography
             variant="h6"
