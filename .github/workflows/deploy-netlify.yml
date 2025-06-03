@@ -16,22 +16,39 @@ jobs:
     runs-on: ubuntu-latest # Servidor Ubuntu más reciente
 
     steps:
-      # 1. Descargar el código del repositorio
+      # 1. Verificar que los secrets estén configurados
+      - name: ✅ Verificar configuración de Netlify
+        run: |
+          if [ -z "${{ secrets.NETLIFY_AUTH_TOKEN }}" ]; then
+            echo "❌ ERROR: NETLIFY_AUTH_TOKEN no está configurado"
+            echo "📝 Ve a: Settings > Secrets and variables > Actions"
+            echo "➕ Agrega NETLIFY_AUTH_TOKEN con tu Personal Access Token de Netlify"
+            exit 1
+          fi
+          if [ -z "${{ secrets.NETLIFY_SITE_ID }}" ]; then
+            echo "❌ ERROR: NETLIFY_SITE_ID no está configurado"
+            echo "📝 Ve a: Settings > Secrets and variables > Actions"
+            echo "➕ Agrega NETLIFY_SITE_ID con el ID de tu sitio de Netlify"
+            exit 1
+          fi
+          echo "✅ Secrets de Netlify configurados correctamente"
+
+      # 2. Descargar el código del repositorio
       - name: 📦 Checkout del código
         uses: actions/checkout@v4
 
-      # 2. Configurar Node.js
+      # 3. Configurar Node.js
       - name: 🟢 Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18" # Versión de Node.js
           cache: "npm" # Cache para acelerar instalaciones
 
-      # 3. Instalar dependencias
+      # 4. Instalar dependencias
       - name: 📥 Instalar dependencias
         run: npm ci # Instalación más rápida y confiable
 
-      # 4. Ejecutar tests (con warnings suprimidos)
+      # 5. Ejecutar tests (con warnings suprimidos)
       - name: 🧪 Ejecutar tests
         run: npm test -- --coverage --ci --passWithNoTests --silent
         env:
@@ -39,16 +56,15 @@ jobs:
           # Suprimir warnings de console para tests más limpios
           NODE_OPTIONS: "--max-old-space-size=4096"
 
-      # 5. Construir la aplicación para producción
+      # 6. Construir la aplicación para producción
       - name: 🏗️ Construir aplicación
         run: npm run build
         env:
           CI: false # Para evitar warnings que detengan el build
           GENERATE_SOURCEMAP: false # Reducir tamaño del build
 
-      # 6. Desplegar a Netlify (continua aunque falle si no hay secrets)
+      # 7. Desplegar a Netlify (OBLIGATORIO - falla si no funciona)
       - name: 🚀 Desplegar a Netlify
-        continue-on-error: true
         uses: nwtgck/actions-netlify@v3.0
         with:
           publish-dir: "./build" # Carpeta a publicar
@@ -63,10 +79,10 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 10
 
-      # 7. Notificar éxito
-      - name: ✅ Deploy completado
+      # 8. Notificar éxito
+      - name: ✅ Deploy completado con éxito
         run: |
-          echo "🎉 ¡Deploy exitoso!"
+          echo "🎉 ¡Deploy exitoso a Netlify!"
           echo "📰 NotiAventuras de Diana está actualizado"
-          echo "🏠 GitHub Pages: https://dmarquez83.github.io/notiaventurasDiana"
-          echo "⚡ Netlify: Configurar secrets para activar deploy automático"
+          echo "🌍 URL del sitio: https://${{ secrets.NETLIFY_SITE_ID }}.netlify.app"
+          echo "⚡ Deploy automático funcionando correctamente"
