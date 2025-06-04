@@ -404,12 +404,17 @@ function App() {
         sx={{
           bgcolor: seccionSeleccionada.color,
           mb: 0,
-          ml: menuAbierto && !isMobile ? "300px" : "auto",
-          width: menuAbierto && !isMobile ? "calc(100% - 300px)" : "100%",
-          transition: "margin-left 0.3s ease, width 0.3s ease",
+          pl: menuAbierto && !isMobile ? "300px" : 0,
+          transition: "padding-left 0.3s ease",
         }}
       >
-        <Toolbar sx={{ flexDirection: "column", py: 2, pl: isMobile ? 8 : 2 }}>
+        <Toolbar
+          sx={{
+            flexDirection: "column",
+            py: 2,
+            pl: isMobile ? 8 : menuAbierto ? 6 : 2,
+          }}
+        >
           {/* Logo del periódico - TEMPORALMENTE REMOVIDO
           <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
             <img
@@ -435,18 +440,27 @@ function App() {
               textAlign: isMobile ? "center" : "inherit",
             }}
           >
-            <Typography
-              variant="caption"
-              sx={{ color: "rgba(255,255,255,0.8)" }}
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+                mx: !isMobile && menuAbierto ? 6 : 0,
+              }}
             >
-              {periodicoData.masthead.editorial}
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{ color: "rgba(255,255,255,0.8)" }}
-            >
-              {periodicoData.masthead.fecha}
-            </Typography>
+              <Typography
+                variant="caption"
+                sx={{ color: "rgba(255,255,255,0.8)" }}
+              >
+                {periodicoData.masthead.editorial}
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{ color: "rgba(255,255,255,0.8)" }}
+              >
+                {periodicoData.masthead.fecha}
+              </Typography>
+            </Box>
           </Box>
 
           {/* NAMEPLATE - Título principal centrado */}
