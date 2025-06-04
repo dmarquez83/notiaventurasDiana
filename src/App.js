@@ -401,7 +401,13 @@ function App() {
       {/* MASTHEAD - Cabecera del Periódico */}
       <AppBar
         position="static"
-        sx={{ bgcolor: seccionSeleccionada.color, mb: 0 }}
+        sx={{
+          bgcolor: seccionSeleccionada.color,
+          mb: 0,
+          ml: menuAbierto && !isMobile ? "300px" : "auto",
+          width: menuAbierto && !isMobile ? "calc(100% - 300px)" : "100%",
+          transition: "margin-left 0.3s ease, width 0.3s ease",
+        }}
       >
         <Toolbar sx={{ flexDirection: "column", py: 2, pl: isMobile ? 8 : 2 }}>
           {/* Logo del periódico - TEMPORALMENTE REMOVIDO
