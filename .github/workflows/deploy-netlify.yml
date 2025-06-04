@@ -72,9 +72,9 @@ jobs:
           production-branch: main # Rama de producción
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "🎉 Deploy desde GitHub Actions - ${{ github.event.head_commit.message }}"
-          enable-pull-request-comment: true
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
+          enable-pull-request-comment: false # DESACTIVADO: evita error de permisos
+          enable-commit-comment: false # DESACTIVADO: evita error de permisos
+          overwrites-pull-request-comment: false # DESACTIVADO: evita error de permisos
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

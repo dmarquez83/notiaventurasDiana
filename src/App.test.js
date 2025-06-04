@@ -11,8 +11,8 @@ test("renders without crashing", () => {
 test("renders unique newspaper elements", () => {
   render(<App />);
 
-  // Buscar por texto del badge (único)
-  const specialBadge = screen.getByText(/DEPLOY AUTOMÁTICO/i);
+  // Buscar por texto del badge (único) - simplificado
+  const specialBadge = screen.getByText(/EDICIÓN ESPECIAL/i);
   expect(specialBadge).toBeInTheDocument();
 
   // Buscar por subtítulo (único)
