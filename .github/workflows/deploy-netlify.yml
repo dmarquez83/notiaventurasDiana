@@ -85,5 +85,5 @@ jobs:
         run: |
           echo "🎉 ¡Deploy exitoso a Netlify!"
           echo "📰 NotiAventuras de Diana está actualizado"
-          echo "🌍 URL del sitio: https://coruscating-scone-02ae73.netlify.app"
+          echo "🌍 URL del sitio: https://notiaventurasdediana.netlify.app"
           echo "⚡ Deploy automático funcionando correctamente"
